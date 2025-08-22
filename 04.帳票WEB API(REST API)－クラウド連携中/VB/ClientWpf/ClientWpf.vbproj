@@ -100,8 +100,13 @@
     <Import Include="System.Windows.Media" />
     <Import Include="System.Windows.Media.Imaging" />
     <Import Include="System.Windows.Navigation" />
-    <Reference Include="Pao.Reports">
+    <Reference Include="Pao.Reports" Condition="!Exists('$(ProgramFiles)\Pao@Office\Reports.net\Pao.Reports.dll') And !Exists('$(ProgramFiles(x86))\Pao@Office\Reports.net\Pao.Reports.dll')">
+      <Name>Pao.Reports</Name>
       <HintPath>$(SolutionDir)..\..\lib\Pao.Reports.dll</HintPath>
+    </Reference>
+    <Reference Include="Pao.Reports">
+      <HintPath Condition="Exists('$(ProgramFiles)')">$(ProgramFiles)\Pao@Office\Reports.net\Pao.Reports.dll</HintPath>
+      <HintPath Condition="Exists('$(ProgramFiles) (x86)')">$(ProgramFiles) (x86)\Pao@Office\Reports.net\Pao.Reports.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

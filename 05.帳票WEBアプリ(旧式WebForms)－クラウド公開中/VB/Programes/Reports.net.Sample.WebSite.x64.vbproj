@@ -71,8 +71,13 @@
     <Reference Include="Owin">
       <HintPath>..\..\Resource\Owin.dll</HintPath>
     </Reference>
-    <Reference Include="Pao.Reports.Azure">
+    <Reference Include="Pao.Reports.Azure" Condition="!Exists('$(ProgramFiles)\Pao@Office\Reports.net\Pao.Reports.Azure.dll') And !Exists('$(ProgramFiles(x86))\Pao@Office\Reports.net\Pao.Reports.Azure.dll')">
+      <Name>Pao.Reports.Azure</Name>
       <HintPath>$(SolutionDir)..\..\lib\Pao.Reports.Azure.dll</HintPath>
+    </Reference>
+    <Reference Include="Pao.Reports.Azure">
+      <HintPath Condition="Exists('$(ProgramFiles)')">$(ProgramFiles)\Pao@Office\Reports.net\Pao.Reports.Azure.dll</HintPath>
+      <HintPath Condition="Exists('$(ProgramFiles) (x86)')">$(ProgramFiles) (x86)\Pao@Office\Reports.net\Pao.Reports.Azure.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
