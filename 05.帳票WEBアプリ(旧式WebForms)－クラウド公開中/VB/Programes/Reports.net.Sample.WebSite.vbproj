@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -77,12 +77,11 @@
     <Reference Include="Microsoft.Web.Infrastructure">
       <HintPath>..\..\Resource\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
-    <Reference Include="Pao.Reports.Azure" Condition="!Exists('$(ProgramFiles)\Pao@Office\Reports.net\Pao.Reports.Azure.dll') And !Exists('$(ProgramFiles(x86))\Pao@Office\Reports.net\Pao.Reports.Azure.dll')">
-      <Name>Pao.Reports.Azure</Name>
-      <HintPath>$(SolutionDir)..\..\lib\Pao.Reports.Azure.dll</HintPath>
-    </Reference>
-    <Reference Include="Pao.Reports.Azure">
-      <HintPath Condition="Exists('$(ProgramFiles)')">$(ProgramFiles)\Pao@Office\Reports.net\Pao.Reports.Azure.dll</HintPath>
+    <Reference Include="Pao.Reports.Azure" Condition="!Exists('$(ProgramFiles) (x86)\Pao@Office\Reports.net\Pao.Reports.Azure.dll') And Exists('$(SolutionDir)..\..\lib\Pao.Reports.Azure.dll') ">
+  <Name>Pao.Reports.Azure</Name>
+  <HintPath>$(SolutionDir)..\..\lib\Pao.Reports.Azure.dll</HintPath>
+</Reference>
+<Reference Include="Pao.Reports.Azure" Condition="Exists('$(ProgramFiles) (x86)\Pao@Office\Reports.net\Pao.Reports.Azure.dll')">
       <HintPath Condition="Exists('$(ProgramFiles) (x86)')">$(ProgramFiles) (x86)\Pao@Office\Reports.net\Pao.Reports.Azure.dll</HintPath>
     </Reference>
     <Reference Include="System" />

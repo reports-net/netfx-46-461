@@ -47,12 +47,11 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="WindowsFormsIntegration" />
     <!-- Reports.net 本体 -->
-    <Reference Include="Pao.Reports" Condition="!Exists('$(ProgramFiles)\Pao@Office\Reports.net\Pao.Reports.dll') And !Exists('$(ProgramFiles(x86))\Pao@Office\Reports.net\Pao.Reports.dll')">
-      <Name>Pao.Reports</Name>
-      <HintPath>$(SolutionDir)..\..\lib\Pao.Reports.dll</HintPath>
-    </Reference>
-    <Reference Include="Pao.Reports">
-      <HintPath Condition="Exists('$(ProgramFiles)')">$(ProgramFiles)\Pao@Office\Reports.net\Pao.Reports.dll</HintPath>
+    <Reference Include="Pao.Reports" Condition="!Exists('$(ProgramFiles) (x86)\Pao@Office\Reports.net\Pao.Reports.dll') And Exists('$(SolutionDir)..\..\lib\Pao.Reports.dll') ">
+  <Name>Pao.Reports</Name>
+  <HintPath>$(SolutionDir)..\..\lib\Pao.Reports.dll</HintPath>
+</Reference>
+<Reference Include="Pao.Reports" Condition="Exists('$(ProgramFiles) (x86)\Pao@Office\Reports.net\Pao.Reports.dll')">
       <HintPath Condition="Exists('$(ProgramFiles) (x86)')">$(ProgramFiles) (x86)\Pao@Office\Reports.net\Pao.Reports.dll</HintPath>
     </Reference>
   </ItemGroup>

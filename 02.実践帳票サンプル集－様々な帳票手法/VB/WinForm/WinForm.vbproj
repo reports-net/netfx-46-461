@@ -85,15 +85,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Pao.Reports" Condition="!Exists('$(ProgramFiles)\Pao@Office\Reports.net\Pao.Reports.dll') And !Exists('$(ProgramFiles(x86))\Pao@Office\Reports.net\Pao.Reports.dll')">
+    <Reference Include="Pao.Reports" Condition="!Exists('$(ProgramFiles) (x86)\Pao@Office\Reports.net\Pao.Reports.dll') And Exists('$(SolutionDir)..\..\lib\Pao.Reports.dll') ">
+  <Name>Pao.Reports</Name>
+  <HintPath>$(SolutionDir)..\..\lib\Pao.Reports.dll</HintPath>
+</Reference>
+<Reference Include="Pao.Reports" Condition="Exists('$(ProgramFiles) (x86)\Pao@Office\Reports.net\Pao.Reports.dll')">
       <Name>Pao.Reports</Name>
-      <HintPath>$(SolutionDir)..\..\lib\Pao.Reports.dll</HintPath>
-    </Reference>
-    <Reference Include="Pao.Reports">
-      <Name>Pao.Reports</Name>
-      <HintPath Condition="Exists('$(ProgramFiles)')">$(ProgramFiles)\Pao@Office\Reports.net\Pao.Reports.dll</HintPath>
       <HintPath Condition="Exists('$(ProgramFiles) (x86)')">$(ProgramFiles) (x86)\Pao@Office\Reports.net\Pao.Reports.dll</HintPath>
-      <AssemblyFolderKey>hkcu\dn\pao%40office</AssemblyFolderKey>
+      
     </Reference>
     <Reference Include="System">
       <Name>System</Name>
