@@ -80,6 +80,9 @@
     <Reference Include="Owin">
       <HintPath>..\..\Resource\Owin.dll</HintPath>
     </Reference>
+    <!-- Reports.net 本体 -->
+    <!-- インストールフォルダにDLLがなければNuGetパッケージから参照 -->
+    <PackageReference Include="Reports.net.Azure" Version="4.7.2.*" Condition="!Exists('$(ProgramFiles) (x86)\Pao@Office\Reports.net\Pao.Reports.Azure.dll')" />
     <Reference Include="Pao.Reports.Azure" Condition="!Exists('$(ProgramFiles) (x86)\Pao@Office\Reports.net\Pao.Reports.Azure.dll') And Exists('$(SolutionDir)..\..\lib\Pao.Reports.Azure.dll') ">
   <Name>Pao.Reports.Azure</Name>
   <HintPath>$(SolutionDir)..\..\lib\Pao.Reports.Azure.dll</HintPath>
